@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FTTH Split Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <h2>FTTH Split Simulator</h2>
+    <p class="tagline">// Optical Power Distribution Calculator</p>
+
+    <!-- STEP 1 -->
+    <div id="step1">
+      <h3>Step 1 — Input & Split</h3>
+
+      <div class="form-row">
+        <label for="powerInput">Power Awal (dBm)</label>
+        <input type="number" id="powerInput" step="0.01" placeholder="Contoh: +1.00">
+      </div>
+
+      <div class="form-row">
+        <label for="ratioSelect">Pilih Split Ratio</label>
+        <select id="ratioSelect">
+          <option value="">-- Pilih Ratio --</option>
+          <option value="1:2">1:2 &nbsp;&nbsp;(Loss: -4 dB)</option>
+          <option value="1:4">1:4 &nbsp;&nbsp;(Loss: -8 dB)</option>
+          <option value="1:8">1:8 &nbsp;&nbsp;(Loss: -10 dB)</option>
+          <option value="1:16">1:16 &nbsp;(Loss: -14 dB)</option>
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <button onclick="handleProses()">Proses</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" style="display:none;">
+      <h3>Step 2 — Hasil Split</h3>
+
+      <p id="hasilText"></p>
+      <p id="statusText"></p>
+
+      <div class="form-row">
+        <label for="ratioSelectStep2">Split Ratio Berikutnya</label>
+        <select id="ratioSelectStep2">
+          <option value="">-- Pilih Ratio --</option>
+          <option value="1:2">1:2 &nbsp;&nbsp;(Loss: -4 dB)</option>
+          <option value="1:4">1:4 &nbsp;&nbsp;(Loss: -8 dB)</option>
+          <option value="1:8">1:8 &nbsp;&nbsp;(Loss: -10 dB)</option>
+          <option value="1:16">1:16 &nbsp;(Loss: -14 dB)</option>
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <button onclick="handleLanjut()">Lanjut Split</button>
+        <button onclick="handleSelesai()">Selesai</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" style="display:none;">
+      <h3>Ringkasan Akhir</h3>
+
+      <p id="hasilAkhir"></p>
+      <p id="statusAkhir"></p>
+
+      <h4>Log Perhitungan</h4>
+      <div id="logContainer"></div>
+
+      <div class="btn-group">
+        <button onclick="handleReset()">Mulai Ulang</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
